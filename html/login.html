@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+        <link rel="stylesheet" href="../css/estilo1.css">
+        <link rel="stylesheet" href="../css/estilo2.css">
+        <!--Estilo 2: background-->
+        <link rel="stylesheet" href="../css/estilo3.css">
+    </head>
+    <body>
+        <div class="formulario">
+            <div class="contenedor">
+              <h1>Iniciar Sesión</h1>
+                
+                <div class="input-contenedor">
+                <i class="fas fa-user icon"></i>
+                <input type="email" id="emailA" placeholder="Correo electrónico">    
+                </div>
+                <br>
+                <div class="input-contenedor">
+                <i class="fas fa-key icon"></i>    
+                <input type="password" id="passA" placeholder="Contraseña">
+                <br>    
+                </div>
+                <br>
+                <input type="button" value="Ingresar" class="button" onclick="acceder()">
+                <p align="center" style=" color: white">¿No tiene cuenta?<a style=" color: white" href="../html/registrar.html">   Registrarse</a></p>
+            </div>
+        </div>
+    
+        <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+        
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#config-web-app -->
+        
+        <script>
+          // Your web app's Firebase configuration
+          var firebaseConfig = {
+          apiKey: "AIzaSyBGNGHhakvRsTvv1B3W2FVT9aL50qbDVwU",
+          authDomain: "torneo-7242d.firebaseapp.com",
+          databaseURL: "https://torneo-7242d-default-rtdb.firebaseio.com/",
+          projectId: "torneo-7242d",
+          storageBucket: "torneo-7242d.appspot.com",
+          messagingSenderId: "1078577811472",
+          appId: "1:1078577811472:web:abf535390138ab6e4b3a95"
+        };
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
+        function acceder() {
+      var emailA = document.getElementById('emailA').value;
+      var passA = document.getElementById('passA').value;
+
+
+      firebase.auth().signInWithEmailAndPassword(emailA, passA)
+        .then((user) => {
+          console.log(user.uid + " logged!");
+          window.location.href = "../html/index2.html";
+        })
+        .catch(function (error) {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          alert(errorMessage);
+        })
+
+        ;
+
+
+
+    }
+
+        </script>
+    </body>
+</html>

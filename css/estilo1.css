@@ -1,0 +1,278 @@
+.logo-nav-container {
+  display: flex;
+  justify-content: space-between;
+  /* lo alineamos al centro */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* logo */
+.logo {
+  letter-spacing: 15px;
+  font-size: 1.3em;
+}
+
+.menu-icon {
+  display: none;
+}
+
+
+.navigation ul li a:hover {
+  background: #cc4444;
+}
+
+.main {
+  padding-top: 12rem;
+}
+
+/*PIE DE PAGINA*/
+.footer {
+  background: #ade3f3;
+  padding: 4rem 0;
+  text-align: center;
+  margin-top: 6rem;
+}
+
+
+.menu-link{
+    color: black;
+}
+
+.fb{
+    color: blue;
+}
+/* REPONSIVE */
+/* todas las caracteristicas que se mostraran a continuancion seran cuando tenga un ancho maximo de 767px */
+
+@media only screen and (max-width: 767px) {
+    .menu-icon{
+        display: block;
+        cursor: pointer;
+    }
+
+    .navigation{
+        width: 100%;
+    }
+    .navigation ul{
+        display: none;
+    }
+    .navigation ul.show{
+        display: block;
+    }
+      
+    .navigation ul li {
+        display: block;
+      }
+      
+      /* los enlaces dentro del menu */
+      .navigation ul li a {
+        display: block;
+        padding: 0.5rem 1rem;
+        transition: all 0.2s linear;
+        border-radius: 5px;
+      }
+      
+      .navigation ul li a:hover {
+        background: #cc4444;
+      }
+}
+
+
+#imagenp{
+  width: 200px; height: 200px;
+}
+
+/* menu */
+/* menu */
+
+#menu ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+ }
+ 
+
+ 
+ 
+ /* items del menu */
+ 
+ #menu ul li {
+  position:relative;
+  float:left;
+  margin:0;
+  padding:0;
+ }
+ 
+
+
+
+
+ #menu ul ul {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background: #333;
+  padding:0;
+  cursor: pointer;
+ }
+ 
+ /* items del menu desplegable */
+ 
+ #menu ul ul li {
+  float:none;
+  width:150px;
+  border-radius: 10%;
+ }
+ 
+ /* enlaces de los items del menu desplegable */
+ 
+ #menu ul ul a {
+  line-height:120%;
+  padding:10px 15px;
+ }
+ 
+ /* items del menu desplegable al pasar el ratón */
+ 
+ #menu ul li:hover > ul {
+  display:block;
+  
+ }
+ .espacio{
+  width: 50px;
+}
+
+
+
+.mensaje {
+  background-color: gray;
+  width: 20%;
+  color: black;
+  text-align: center;
+  font-size: 2.5em;
+  padding: 0.1%;
+}
+
+.oculta {
+  display: none;
+}
+
+.mensaje:hover .oculta {
+    display: block;
+}
+
+
+#parpadea {
+  background-color: #cc4444;
+  animation-name: parpadeo;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name:parpadeo;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes parpadeo{  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes parpadeo {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+   100% { opacity: 1.0; }
+}
+
+@keyframes parpadeo {  
+  0% { opacity: 1.0; }
+   50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+.tablaingreso td button{
+  display: block;
+  width:150px;
+  height: 150px;
+  font-size: 25px;
+}
+
+#resultado{
+  display: block;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 50px;
+  width: 600px;
+  height: 100px;
+  line-height: 100px;
+  background-color: #fff;
+  border-radius: 25px;
+  overflow-y: scroll;
+}
+.tablaingreso{
+  display: block;
+  margin: 0 auto;
+  padding:20px;
+  background-color: #333;
+  width: 650px;
+  height: 800px;
+  border-radius: 25px;
+}
+
+.ventana{
+  background: blue;
+  width :1000px;
+  height: 1200px;
+  color:white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  text-align: center;
+  padding: 33px;
+  min-height: 250px;
+  border-radius: 22px;
+  position: absolute;
+  left: 25%;
+  top: 35%;
+  display: none;
+
+}
+.ventana1{
+  background: gray;
+  width :100px;
+  
+  color:white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  text-align: center;
+  padding: 33px;
+  min-height: 100px;
+  border-radius: 22px;
+  position: absolute;
+  left: 45%;
+  top: 35%;
+  display: none;
+
+}
+#cerrar{
+  position: absolute;
+
+  right: 30px;
+}
+
+
+
+#map{
+  height: 500px;
+  width: 100%;
+}
+
+.main{
+  width: 90%;
+  margin: 0 auto;
+  max-width: 100%;
+  overflow: hidden;
+
+}

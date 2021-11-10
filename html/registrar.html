@@ -19,24 +19,35 @@
       <h1>Regístrate</h1>
         <div class="input-contenedor">
         <i class="fas fa-user icon"></i>
-        <input type="email" id="NombreC" placeholder="Nombre">    
+        <input type="email" id="NombreC" placeholder="Nombre / NickName">    
         </div>
-        
+  
         <div class="input-contenedor">
-        <i class="fas fa-envelope icon"></i> 
-        <input type="email" id="email" placeholder="Email">
-        <br>
-        </div>
-        <div class="input-contenedor">
-            <i class="fas fa-key icon"></i>    
-            <input type="password" id="pass" placeholder="Contraseña">
-            <br>    
-        </div>
-        <div class="input-contenedor">
-            <i class="fas fa-key icon"></i>    
-            <input type="password" id="repassC" placeholder="Confirmar Contraseña">
-            <br>    
-        </div>
+          <i class="fas fa-phone icon"></i>    
+          <input type="email" id="CelularC" placeholder="Celular">
+          <br>    
+      </div>
+      <div class="input-contenedor">
+        <i class="fas fa-flag icon"></i>    
+        <input type="email" id="nacionalidadC" placeholder="Nacionalidad">
+        <br>    
+    </div>
+    <div class="input-contenedor">
+      <i class="fas fa-table icon"></i>    
+      <input type="email" id="fechaNacimientoC" placeholder="Fecha Nacimiento">
+      <br>    
+      
+  </div>
+  <div class="input-contenedor">
+    <i class="fas fa-envelope icon"></i> 
+    <input type="email" id="email" placeholder="Email">
+    <br>
+    </div>
+    <div class="input-contenedor">
+        <i class="fas fa-key icon"></i>    
+        <input type="password" id="pass" placeholder="Contraseña">
+        <br>    
+    </div>
         <br>
         <button class="button" id="crearusuario" onclick="registrarNuevo()">registrar</button>
       </div>
@@ -73,6 +84,9 @@ var database = firebase.database();
     var usuario = document.getElementById('NombreC').value;
     var email=document.getElementById('email').value;
     var pass=document.getElementById('pass').value;
+    var fechaNacimientoN=document.getElementById('pass').value;
+    var celularN=document.getElementById('CelularC').value;
+    var nacionalidadN=document.getElementById('nacionalidadC').value;
     firebase.auth().createUserWithEmailAndPassword(email, pass)
     .then(function(data){
   console.log('uid', data.user.uid)
@@ -81,8 +95,12 @@ var database = firebase.database();
     nombreUsuario: usuario,
     emailUsuario:email,
     sexo: 'masculino',
-    fechaNacimiento:'06-12-1999',
-    rolUsuario:'jugador' 
+    fechaNacimiento:fechaNacimiento,
+    rolUsuario:'jugador',
+    celular_Personal: celularN,
+    nacionalidad: nacionalidadN,
+    descripcion:'No se añadió descripción',
+    url: "https://firebasestorage.googleapis.com/v0/b/torneo-7242d.appspot.com/o/1467646262_522853_1467646344_noticia_normal.jpg?alt=media&token=d3e92027-6121-4246-982e-36bcb24c837f"
   });
   }
     )

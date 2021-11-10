@@ -16,15 +16,6 @@
   display: none;
 }
 
-
-.navigation ul li a:hover {
-  background: #cc4444;
-}
-
-.main {
-  padding-top: 12rem;
-}
-
 /*PIE DE PAGINA*/
 .footer {
   background: #ade3f3;
@@ -162,36 +153,6 @@
 }
 
 
-#parpadea {
-  background-color: #cc4444;
-  animation-name: parpadeo;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-
-  -webkit-animation-name:parpadeo;
-  -webkit-animation-duration: 2s;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-}
-
-@-moz-keyframes parpadeo{  
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
-  100% { opacity: 1.0; }
-}
-
-@-webkit-keyframes parpadeo {  
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
-   100% { opacity: 1.0; }
-}
-
-@keyframes parpadeo {  
-  0% { opacity: 1.0; }
-   50% { opacity: 0.0; }
-  100% { opacity: 1.0; }
-}
 
 .tablaingreso td button{
   display: block;
@@ -274,5 +235,6 @@
   margin: 0 auto;
   max-width: 100%;
   overflow: hidden;
+  align-content: center;
 
 }

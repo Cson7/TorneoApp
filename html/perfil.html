@@ -4,6 +4,9 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/estilo1.css">
+        <link rel="stylesheet" href="../css/estilo3.css">
+      
         <title>Torneos</title>
         <link rel="stylesheet" href="../css/style.css"/>
         <script
@@ -31,23 +34,41 @@
             </ul>
           </nav>
         </header>
-        <main align="center" class="main"> 
-            <h1>Perfil de usuario</h1>
-            <div class="container">
-                <div class="row">
-                  <div class="col order-last">
-                    <img style="float: center; width: 400px; height: 300px;"id="imagenp" src="../imagenes/perfil.png">
-                  </div>
-                  <div class="col">
-                
+      
+          <main class="main" >
+            <div class="container"  id="contenido">
+               <div>
+                <h1>Perfil de usuario</h1>
+               </div>
+               <img id="imagenp" src="../imagenes/66674310-muestra-de-la-transferencia-cargar-icono-sistema-de-carga-carga-de-datos-cargando-bar-.jpg">
+                <div id="marco">
                 </div>
-              </div>
-          <div class="container">
-          </div>
-          <script>
+                <div class="mensaje">
+                    <a style="font-size: 12px;"> Actualizar foto</a>
+                    <label class="oculta" for="upload-file-selector">
+                    <input class="oculta" id="upload-file-selector" type="file" accept="image/x-png,image/gif,image/jpeg">
+                    <button onclick="uploadImage()">Actualizar</button>
+                    </label>
+                </div>
+               <div id="cuerpo">
+    
+                <fieldset>
+                    <legend>Datos Personales</legend>
+                    <ul>
+                        <li ><span>NickName: </span>  <a id="nombre_perfil"></a></li>
+                        <li ><span>Correo: </span><a id="correo_perfil"></a></li>
+                        <li ><span>Número telefónico: </span><a id="numero_perfil"></a></li>
+                        <li><span>Fecha de nacimiento: </span><a  id="fecha_perfil"></a></li>
+                        <li><span>Nacionalidad: </span><a  id="nacionalidad_perfil"></a></li>
+                        <li><span>Descripción: </span><a  id="descripcion_perfil"></a></li>
+                    </ul> 
+                  </fieldset>
+            </div>
+        </div>   
+        </main>   
+        <script>
             document.getElementById('ahref').addEventListener('click', function(e){
                    e.preventDefault();
-                   
                    firebase
        .auth()
        .signOut()
@@ -63,8 +84,9 @@
        
                    
                })
-             </script>
-             <script>
+        </script>
+
+        <script>
                firebase.auth().onAuthStateChanged(function (user) {
              if (user) {
                  setInterval('cerrarauto()', 300000)
@@ -75,12 +97,7 @@
            });
            
                  
-             </script>
-        </div>
-       
-  
-
-        </main>
+        </script>
         <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
@@ -122,6 +139,23 @@
         tablap.innerHTML=html;
     })
       </script>
+              <script>
+                console.log("gola")
+
+                var database = firebase.database();
+firebase.auth().onAuthStateChanged(function(user){
+   return firebase.database().ref('/Usuarios/' + user.uid).once('value').then(function(snapshot) {
+   user= snapshot.val();
+   document.getElementById("nombre_perfil").innerHTML= user.nombreUsuario;
+   document.getElementById("numero_perfil").innerHTML= user.celular_Personal;
+   document.getElementById("fecha_perfil").innerHTML= user.fechaNacimiento;
+   document.getElementById("nacionalidad_perfil").innerHTML= user.nacionalidad;
+   document.getElementById("correo_perfil").innerHTML= user.emailUsuario;
+   document.getElementById("descripcion_perfil").innerHTML= user.descripcion;
+   document.getElementById("imagenp").src=user.url;
+});
+})
+        </script>
         
       <script>
      document.getElementById('ahref').addEventListener('click', function(e){
@@ -139,21 +173,8 @@
 .catch(function (error) {
   alert("F");
 });
-
-            
+  
         })
-      </script>
-      <script>
-        firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-          setInterval('cerrarauto()', 300000)
-      } else{
-         
-              window.location.href = "../html/index.html";
-      }
-    });
-    
-          
       </script>
       <script src="../js/index.js"></script>
 

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<htmL>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Torneos</title>
+        <link rel="stylesheet" href="../css/style.css"/>
+        <script
+        src="https://kit.fontawesome.com/7e5b2d153f.js"
+        crossorigin="anonymous"
+      ></script>
+    </head>
+    <body>
+        <header class="header">
+          <nav class="nav">
+            <a href="#" class="logo nav-link">Logo</a>
+            <button class="nav-toggle" aria-label="Abrir menú">
+              <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+        
+              <li class="nav-menu-item">
+                <a href="../html/login.html" class="nav-menu-link nav-link nav-menu-link_active"
+                  >Iniciar sesión</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <main align="center">
+          <div class="container">
+
+            <div class="row">
+              <div class="col-lg-12">
+                  <img class="rounded float-left" src="../imagenes/descarga (1).jfif" />
+                  <img class="rounded float-left" src="../imagenes/descarga (2).jfif" />
+                  <img class="rounded float-right"  src="../imagenes/descarga.jfif" />
+              </div>
+          </div>
+          </div>
+          <h1>Lista de torneos activos</h1>
+          <center><h1 style="text-align: center;"></h1>
+                
+            <table id="tabla-exportar"> 
+                <thead>
+                    <tr >
+                        <th  style=" border: black 1px solid" scope="col">Nombres</th>
+                        <th style=" border: black 1px solid" scope="col">Descripción</th>
+                        <th style=" border: black 1px solid" scope="col">Cant. Participantes</th>
+                        <th style=" border: black 1px solid" scope="col">Correo Organizador</th>
+                        <th style=" border: black 1px solid" scope="col">Ver Fixture</th>
+                        <th style=" border: black 1px solid" scope="col">Ver Posiciones</th>
+                        
+                    </tr>
+                </thead>
+                <tbody style=" border: black 1px solid" id="tablapersonalizada">
+                
+               
+                </tbody>
+            </table>
+        </center>
+        </main>
+        <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+        
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#config-web-app -->
+        
+        <script>
+          // Your web app's Firebase configuration
+          var firebaseConfig = {
+          apiKey: "AIzaSyBGNGHhakvRsTvv1B3W2FVT9aL50qbDVwU",
+          authDomain: "torneo-7242d.firebaseapp.com",
+          databaseURL: "https://torneo-7242d-default-rtdb.firebaseio.com/",
+          projectId: "torneo-7242d",
+          storageBucket: "torneo-7242d.appspot.com",
+          messagingSenderId: "1078577811472",
+          appId: "1:1078577811472:web:abf535390138ab6e4b3a95"
+        };
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
+        firebase.database().ref('/Torneos/')
+    .on('value', function(snapshot){
+        var html="";
+        var tablap= document.getElementById("tablapersonalizada");
+        snapshot.forEach(function(e){
+            var elemento=e.val();
+            html +=`
+            <tr style=" border: black 1px solid">
+            <th style=" border: black 1px solid"> ${elemento.nombre}</th>
+            <th style=" border: black 1px solid"> ${elemento.descripcion}</th>
+            <th style=" border: black 1px solid"> ${elemento.cantidadRegistrados}</th>
+            <th style=" border: black 1px solid"> ${elemento.correoOrganizador}</th>
+            <th style=" border: black 1px solid"> <button> VER </button></th>
+            <th style=" border: black 1px solid"> <button> VER </button></th>
+            
+            </tr>
+            `
+        })
+        tablap.innerHTML=html;
+    })
+      </script>
+      <script src="../js/index.js"></script>
+
+      </body>
+</htmL>
